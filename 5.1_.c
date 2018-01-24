@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int porownaj(int czas1[3], int czas2[3]) {
-  for (int i = 0; i < 3; i++) {
+int porownaj(int rozmiar, int czas1[rozmiar], int czas2[rozmiar]) {
+  for (int i = 0; i < rozmiar; i++) {
     if (czas1[i] > czas2[i])
       return -1;
     if (czas1[i] < czas2[i])
@@ -10,7 +10,7 @@ int porownaj(int czas1[3], int czas2[3]) {
   return 0;
 }
 
-int sprawdzformat(int czas[3]) {
+int sprawdzformat(int rozmiar, int czas[rozmiar]) {
   if (czas[0] > 23 || czas[0] < 0)
     return 0;
   if (czas[1] > 59 || czas[1] < 0)
@@ -27,9 +27,9 @@ int main() {
   scanf("%d%d%d", czas1, czas1 + 1, czas1 + 2);
   printf("podaj 2 godzinę\n");
   scanf("%d%d%d", czas2, czas2 + 1, czas2 + 2);
-  if ((sprawdzformat(czas1) && sprawdzformat(czas2)) == 0) {
+  if ((sprawdzformat(3, czas1) && sprawdzformat(3, czas2)) == 0) {
     printf("Nieprawidłowy format. Używaj hh mm ss\n");
     return 0;
   }
-  return porownaj(czas1, czas2);
+  return porownaj(3, czas1, czas2);
 }

@@ -15,15 +15,14 @@ void init() {
   srand(seed);
 }
 
-void initfield(int field[3][3]) {
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 3; j++)
+void initfield(int n, int field[n][n]) {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++)
       field[i][j] = 0;
   }
 }
 
 int chkwin(int pole[3][3]) {
-
   for (int i = 0; i < 3; i++) { 
     if (pole[0][i] != 0) {
       if (pole[0][i] == pole[1][i] && pole[0][i] == pole[2][i]) {
@@ -36,6 +35,7 @@ int chkwin(int pole[3][3]) {
       }
     }
   }
+
   if (pole[1][1] != 0) {
     if (pole[0][0] == pole[1][1] && pole[1][1] == pole[2][2]) {
       return pole[1][1];
@@ -49,9 +49,9 @@ int chkwin(int pole[3][3]) {
 
 int runda(int startsfirst, int p1score, int p2score, int pvp) {
   int field[3][3];
-  initfield(field);
+  initfield(3, field);
   int movecounter = 0;
-  printfield(field);
+  printfield(3, field);
   printscore(p1score, p2score, pvp);
   
   while (chkwin(field) == 0 && movecounter < 9) {
@@ -61,7 +61,7 @@ int runda(int startsfirst, int p1score, int p2score, int pvp) {
       p2move(field);
     else
       ai(field);
-    printfield(field);
+    printfield(3, field);
     printscore(p1score, p2score, pvp);
     movecounter++;
   }
@@ -98,7 +98,6 @@ void gra(int pvp) {
   return;
 }
 
-
 void run(int mode) {
   switch (mode) {
   case 1:
@@ -115,9 +114,12 @@ void run(int mode) {
 
 int menu() {
   clear();
-  printw("1. Zagraj z innym graczem\n2. Zagraj z komputerem\n3. Sterowanie\n"
-         "4. Wyjscie\n");
-  char c = getch();
+  printw(
+"1. Zagraj z innym graczem\n"
+"2. Zagraj z komputerem\n"
+"3. Sterowanie\n"
+"4. Wyjscie\n");
+  const char c = getch();
   switch (c) {
   case '1':
     return 1;

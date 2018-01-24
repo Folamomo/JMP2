@@ -2,10 +2,9 @@
 #include <stdio.h>
 
 void p1move(int pole[3][3]) {
-
   int warunek = 1;
   while (warunek) {
-    char c = getch();
+    const char c = getch();
     if (c == 'q') {
       if (pole[0][0] == 0) {
         pole[0][0] = 1;
@@ -59,7 +58,7 @@ void p2move(int pole[3][3]) {
 
   int warunek = 1;
   while (warunek) {
-    char c = getch();
+    const char c = getch();
     if (c == 'u') {
       if (pole[0][0] == 0) {
         pole[0][0] = 2;
