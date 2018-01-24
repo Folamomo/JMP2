@@ -1,5 +1,6 @@
 #include <ncurses.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 void printhelp() {
   clear();
@@ -31,13 +32,13 @@ void printfield(int n, int pole[n][n]) {
   }
 }
 
-void printscore(int p1score, int p2score, int pvp) {
+void printscore(int p1score, int p2score, bool pvp) {
   if (pvp == TRUE)
     printw("\n"
-"Gracz 1   Gracz 2\n");
+           "Gracz 1   Gracz 2\n");
   else
     printw("\n"
-"Gracz 1   Komputer\n");
+           "Gracz 1   Komputer\n");
   printw(
 "  %d         %d\n", p1score, p2score);
 }
