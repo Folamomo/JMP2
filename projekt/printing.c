@@ -40,5 +40,5 @@ void printscore(int p1score, int p2score, bool pvp) {
     printw("\n"
            "Gracz 1   Komputer\n");
   printw(
-"  %d         %d\n", p1score, p2score);
+           "  %d         %d\n", p1score, p2score);
 }
