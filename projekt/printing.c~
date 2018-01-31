@@ -12,15 +12,15 @@ void printhelp() {
   getch();
 }
 
-void printfield(int n, int field[n][n]) {
+void printfield(int n, int pole[n][n]) {
   clear();
   for (int y = 0; y < n; y++) {
     for (int x = 0; x < n; x++) {
-      if (field[y][x] == 0) {
+      if (pole[y][x] == 0) {
         printw(" ");
-      } else if (field[y][x] == 1) {
+      } else if (pole[y][x] == 1) {
         printw("x");
-      } else if (field[y][x] == 2) {
+      } else if (pole[y][x] == 2) {
         printw("O");
       }
       if (x < n-1) {

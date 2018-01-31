@@ -86,7 +86,7 @@ int tryDefending(int field [3][3]){
 }
 
 void playrandom(int field[3][3]){// gra losowe pole
-  while(1) { 
+  while(TRUE) { 
     int* randomfield=&(field[rand() % 3][rand() % 3])	;
     if (*randomfield==0){
 	    *randomfield=2;

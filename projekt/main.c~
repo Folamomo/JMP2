@@ -45,7 +45,7 @@ int checkwin(int field[3][3]) {
   return 0;
 }
 
-int playOneRound(int startsfirst, int p1score, int p2score, int pvp) {
+int round(int startsfirst, int p1score, int p2score, int pvp) {
   int field[3][3];
   initfield(3, field);
   int movecounter = 0;
@@ -74,7 +74,7 @@ void game(int pvp) {
   int p2score = 0;
   
   while (p1score < 4 && p2score < 4) {
-    int winner = playOneRound(startsfirst, p1score, p2score, pvp);
+    int winner = round(startsfirst, p1score, p2score, pvp);
     if (winner == 1) {
       p1score++;
       startsfirst = 0;
