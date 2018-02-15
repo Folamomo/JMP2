@@ -21,16 +21,17 @@ struct Vector *init(int allocated) {
 
 void reallocate(struct Vector *vector, int newsize) {
   if (vector->size > newsize) {
-    fprintf(stderr, "Warning: Allocated memory is smaller than data size. Some data may be lost\n");
+    fprintf(stderr, "Warning: Allocated memory is smaller than data size. Some "
+                    "data may be lost\n");
   }
-  int *newpointer=(int *)realloc(vector->data, newsize*sizeof(int));
-  if (newpointer== NULL) {
+  int *newpointer = (int *)realloc(vector->data, newsize * sizeof(int));
+  if (newpointer == NULL) {
     fprintf(stderr, "Not enough memory\n");
     return;
   }
   vector->allocated = newsize;
-  if (vector->size>vector->allocated)
-	vector->size=vector->allocated;
+  if (vector->size > vector->allocated)
+    vector->size = vector->allocated;
   vector->data = newpointer;
 }
 
@@ -108,9 +109,9 @@ int at(struct Vector *vector, int location) {
   return vector->data[location];
 }
 
-void print (struct Vector *vector){
-	printf ("[");
-	for (int i=0; i<vector->size;i++)
-		printf("%d, ", vector->data[i]);
-	printf ("\b\b]\n");
+void print(struct Vector *vector) {
+  printf("[");
+  for (int i = 0; i < vector->size; i++)
+    printf("%d, ", vector->data[i]);
+  printf("\b\b]\n");
 }
